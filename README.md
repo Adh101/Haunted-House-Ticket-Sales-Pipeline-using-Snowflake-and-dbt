@@ -8,14 +8,6 @@ Step into the data-filled world of thrills and chills as you venture into a them
 
 --
 
-Remember that, if you are running your project for the first time, dbt will ask you to run
-
-```bash
-$ dbt deps
-```
-
-to install the packages defined in packages.yml
-
 ## Steps
 
 ### 1 - Add new sources
@@ -297,7 +289,13 @@ Each dbt project contains various directories and files. Learn more about the st
       $env:DBT_SCHEMA = "bruno"
       ```
 
+- Remember that, if you are running your project for the first time, dbt will ask you to run
 
+```bash
+$ dbt deps
+```
+
+to install the packages defined in packages.yml
 - Run `dbt debug` to check your connection.
 
 
