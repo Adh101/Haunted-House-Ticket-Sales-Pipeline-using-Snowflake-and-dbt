@@ -1,5 +1,5 @@
 
-# 📊 dbt Assignment
+# 📊 Haunted House Extravaganza with dbt and Snowflake
 
 **🎃 Welcome to the Haunted House Extravaganza! 👻🎟️**
 Step into the data-filled world of thrills and chills as you venture into a theme park with 10 spine-tingling haunted houses!
