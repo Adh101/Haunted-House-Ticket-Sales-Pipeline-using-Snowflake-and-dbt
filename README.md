@@ -201,37 +201,6 @@ Inside the **`models/marts/dim_customers.yml`** file, create a _unit test_ that 
 > :bulb: Just remember of including the example.io case too.
 >
 
-
-
-### 📄 List of files required:
-Use this list to check if you have all the file for the homework.
-
-#### sources
-- `models/staging/_sources.yml`
-#### staging
-- `models/staging/stg_customer_feedbacks.sql`
-- `models/staging/stg_customer_feedbacks.yml`
-- `models/staging/stg_customers.sql`
-- `models/staging/stg_customers.yml`
-- `models/staging/stg_haunted_house_tickets.sql`
-- `models/staging/stg_haunted_house_tickets.yml`
-- `models/staging/stg_haunted_houses.sql`
-- `models/staging/stg_haunted_houses.yml`
-### seeds
-- `seeds/valid_domains.csv`
-#### marts
-- `models/marts/fact_visits.sql`
-- `models/marts/fact_visits.yml`
-- `models/marts/dim_haunted_houses.sql`
-- `models/marts/dim_haunted_houses.yml`
-- `models/marts/dim_customers.sql`
-- `models/marts/dim_customers.yml`
-#### (Optional) tests
-- `tests/generic/is_positive.sql`
-- `models/marts/dim_customers.yml` (the unit test goes here)
-#### (Optional) macros
-- `macros/<the_name_you_want>.sql`
-
 # 📚 Other helpful resources for learning!
 
 ### dbt docs
