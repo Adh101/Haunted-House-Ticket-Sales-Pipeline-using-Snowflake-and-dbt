@@ -6,7 +6,6 @@ Step into the data-filled world of thrills and chills as you venture into a them
 
 🏚️ Your mission this week? Manage all the creepy customer tickets, terrifying feedback, and haunted house details lurking in the shadows. 💀
 
---
 
 ## Steps
 
