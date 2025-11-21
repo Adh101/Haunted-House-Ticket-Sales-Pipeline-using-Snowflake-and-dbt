@@ -1,153 +1,3 @@
-**dbt week 1 homework**
-====================
-
-This repository emulates an “open-source” project, though exclusively shared within the dataexpert community. Members can access the repository for independent use or contribute enhancements to the project's design and functionality. This serves as an opportunity to practice contributing to publicly shared open-source repositories.
-
-**Table of Contents**
-
-
-- [🚀 Getting Started](#-getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Local Development](#local-development)
-  - [dbt Project Setup](#dbt-project-setup)
-- [📥 Homework Submission](#-homework-submission)
-- [📊 dbt Assignment](#-dbt-assignment)
-  - [1 - Add new sources](#1---add-new-sources)
-  - [2 - Create base models](#2---create-base-models)
-  - [3 - Create a seed for valid email domains](#3---create-a-seed-for-valid-email-domains)
-  - [4 - Create the Fact and Dimension tables](#4---create-the-fact-and-dimension-tables)
-    - [4.1 - fact_visits](#41---fact_visits)
-    - [4.2 - dim_haunted_houses](#42---dim_haunted_houses)
-    - [4.3 - dim_customers](#43---dim_customers)
-  - [5 (Optional) - Add custom tests](#5-optional---add-custom-tests)
-    - [5.1 (Optional) - Custom generic test](#51-optional---custom-generic-test)
-    - [5.2 (Optional) - Unit test](#52-optional---unit-test)
-- [📄 List of Files Required](#-list-of-files-required)
-  - [Sources](#sources)
-  - [Staging](#staging)
-  - [Seeds](#seeds)
-  - [Marts](#marts)
-  - [Tests (Optional)](#tests-optional)
-  - [Macros (Optional)](#macros-optional)
-- [📚 Other Helpful Resources for Learning!](#-other-helpful-resources-for-learning)
-- [📂 Navigating the Repository](#-navigating-the-repository)
-
-
-# **🚀 Getting Started**
-
-## **Prerequisites**
-
-1. **Python >= 3.9**
-
-## **Local Development**
-
-1. **Clone the Repository**: Open a terminal, navigate to your desired directory, and clone the repository using:
-    ```bash
-    git clone git@github.com:DataExpert-io/analytics-engineering-bootcamp-homework.git # clone the repo
-    cd analytics-engineering-bootcamp-homework # navigate into the new folder
-    ```
-
-    1. If you don’t have SSH configured with the GitHub CLI, please follow the instructions for [generating a new SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and [adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?tool=cli) in the GitHub docs.
-
-
-
-## dbt Project Setup
-
--  **Create a Branch:**
-    - Navigate to the **`analytics-engineering-bootcamp-homework/dbt_basics/homework`** folder on your local machine.
-    - Use the **`git checkout -b`** command to create a new branch where you can commit and push your changes. Prefix your branch name with your Git username to avoid conflicts.
-          For example:
-
-        ```bash
-        git checkout -b homework/my-git-username
-        ```
-    - Create a copy of the **`template/`** folder and rename it to **`<your-git-username>`**, for example **`dbt_basics/homework/bruno`**.
-
-- Go to the project's directory, assuming you are already in the **`homework`** folder:
-  ```bash
-  cd <your-git-username>
-  ```
-- Create a venv to isolate required packages
-  ```bash
-  python3 -m venv venv # MacOS/Linux
-  # or
-  python -m venv venv # Windows/PC
-  ```
-- Source the virtual environment
-  ```bash
-  source venv/bin/activate # MacOS/Linux
-  # or
-  venv/Scripts/activate # Windows/PC
-  ```
-- Install the required packages
-  ```bash
-  pip3 install -r dbt-requirements.txt # MacOS/Linux
-  # or
-  pip install -r dbt-requirements.txt # Windows/PC
-  ```
-- Update `DBT_SCHEMA` environment variable
-  - MacOS/Linux:
-    - Open the `dbt.env` file, change the `DBT_SCHEMA` to your schema from Weeks 1 and 2, and source the environment variables to your local (terminal) environment
-      ```bash
-      export DBT_SCHEMA='your_schema' # EDIT THIS FIELD
-      ```
-    - then run
-      ```bash
-      source dbt.env
-      ```
-  - Windows/PC:
-    - Instead of overwriting the DBT_SCHEMA in the file you can run:
-      - CMD:
-      ```bash
-      set DBT_SCHEMA=your_schema
-
-      # For example
-      set DBT_SCHEMA=bruno #(without quotes)
-      ```
-      - PowerShell:
-      ```bash
-      $env:DBT_SCHEMA = "your_schema"
-
-      # For example
-      $env:DBT_SCHEMA = "bruno"
-      ```
-
-
-- Run `dbt debug` to check your connection. You should see a message like this:
-    ```
-    21:43:08  Running with dbt=1.8.0
-    21:43:08  dbt version: 1.8.0
-    21:43:08  python version: 3.9.6
-    21:43:08  python path: <path_to_repo>/airflow-dbt-project/dbt_project/venv/bin/python3
-    21:43:08  os info: macOS-13.5.1-arm64-arm-64bit
-    21:43:08  Using profiles dir at ./
-    21:43:08  Using profiles.yml file at ./profiles.yml
-    21:43:08  Using dbt_project.yml file at ./dbt_project.yml
-    21:43:08  adapter type: trino
-    21:43:08  adapter version: 1.8.0
-    21:43:08  Configuration:
-    21:43:08  profiles.yml file [OK found and valid]
-    21:43:08  dbt_project.yml file [OK found and valid]
-    21:43:08  Required dependencies:
-    21:43:08   - git [OK found]
-
-    21:43:08  Connection:
-    21:43:08  host: dataengineer-eczachly.trino.galaxy.starburst.io
-    21:43:08  port: 8443
-    21:43:08  user: support@eczachly.com/student
-    21:43:08  database: academy
-    21:43:08  schema: <your schema>
-    21:43:08  cert: None
-    21:43:08  prepared_statements_enabled: True
-    21:43:08  Registered adapter: trino=1.8.0
-    21:43:10  Connection test: [OK connection ok]
-
-    21:43:10  All checks passed!
-    ```
-
-
-You're good to go!
-
 
 # 📊 dbt Assignment
 
@@ -409,3 +259,118 @@ Each dbt project contains various directories and files. Learn more about the st
 - **`tests/`**: This folder is where dbt searches for custom tests (generic or singular).
 - **`dbt_project.yml`**: Every dbt project needs a dbt_project.yml file — this is how dbt knows a directory is a dbt project. It also contains important information that tells dbt how to operate your project. [More info here](https://docs.getdbt.com/reference/dbt_project.yml).
 - **`packages.yml`**: This folder is where you define the packages you want dbt to install.
+
+# **🚀 Getting Started**
+
+## **Prerequisites**
+
+1. **Python >= 3.9**
+
+## **Local Development**
+
+1. **Clone the Repository**: Open a terminal, navigate to your desired directory, and clone the repository using:
+    ```bash
+    git clone git@github.com:DataExpert-io/analytics-engineering-bootcamp-homework.git # clone the repo
+    cd analytics-engineering-bootcamp-homework # navigate into the new folder
+    ```
+
+    1. If you don’t have SSH configured with the GitHub CLI, please follow the instructions for [generating a new SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and [adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?tool=cli) in the GitHub docs.
+
+
+
+## dbt Project Setup
+
+-  **Create a Branch:**
+    - Navigate to the **`analytics-engineering-bootcamp-homework/dbt_basics/homework`** folder on your local machine.
+    - Use the **`git checkout -b`** command to create a new branch where you can commit and push your changes. Prefix your branch name with your Git username to avoid conflicts.
+          For example:
+
+        ```bash
+        git checkout -b homework/my-git-username
+        ```
+    - Create a copy of the **`template/`** folder and rename it to **`<your-git-username>`**, for example **`dbt_basics/homework/bruno`**.
+
+- Go to the project's directory, assuming you are already in the **`homework`** folder:
+  ```bash
+  cd <your-git-username>
+  ```
+- Create a venv to isolate required packages
+  ```bash
+  python3 -m venv venv # MacOS/Linux
+  # or
+  python -m venv venv # Windows/PC
+  ```
+- Source the virtual environment
+  ```bash
+  source venv/bin/activate # MacOS/Linux
+  # or
+  venv/Scripts/activate # Windows/PC
+  ```
+- Install the required packages
+  ```bash
+  pip3 install -r dbt-requirements.txt # MacOS/Linux
+  # or
+  pip install -r dbt-requirements.txt # Windows/PC
+  ```
+- Update `DBT_SCHEMA` environment variable
+  - MacOS/Linux:
+    - Open the `dbt.env` file, change the `DBT_SCHEMA` to your schema from Weeks 1 and 2, and source the environment variables to your local (terminal) environment
+      ```bash
+      export DBT_SCHEMA='your_schema' # EDIT THIS FIELD
+      ```
+    - then run
+      ```bash
+      source dbt.env
+      ```
+  - Windows/PC:
+    - Instead of overwriting the DBT_SCHEMA in the file you can run:
+      - CMD:
+      ```bash
+      set DBT_SCHEMA=your_schema
+
+      # For example
+      set DBT_SCHEMA=bruno #(without quotes)
+      ```
+      - PowerShell:
+      ```bash
+      $env:DBT_SCHEMA = "your_schema"
+
+      # For example
+      $env:DBT_SCHEMA = "bruno"
+      ```
+
+
+- Run `dbt debug` to check your connection. You should see a message like this:
+    ```
+    21:43:08  Running with dbt=1.8.0
+    21:43:08  dbt version: 1.8.0
+    21:43:08  python version: 3.9.6
+    21:43:08  python path: <path_to_repo>/airflow-dbt-project/dbt_project/venv/bin/python3
+    21:43:08  os info: macOS-13.5.1-arm64-arm-64bit
+    21:43:08  Using profiles dir at ./
+    21:43:08  Using profiles.yml file at ./profiles.yml
+    21:43:08  Using dbt_project.yml file at ./dbt_project.yml
+    21:43:08  adapter type: trino
+    21:43:08  adapter version: 1.8.0
+    21:43:08  Configuration:
+    21:43:08  profiles.yml file [OK found and valid]
+    21:43:08  dbt_project.yml file [OK found and valid]
+    21:43:08  Required dependencies:
+    21:43:08   - git [OK found]
+
+    21:43:08  Connection:
+    21:43:08  host: dataengineer-eczachly.trino.galaxy.starburst.io
+    21:43:08  port: 8443
+    21:43:08  user: support@eczachly.com/student
+    21:43:08  database: academy
+    21:43:08  schema: <your schema>
+    21:43:08  cert: None
+    21:43:08  prepared_statements_enabled: True
+    21:43:08  Registered adapter: trino=1.8.0
+    21:43:10  Connection test: [OK connection ok]
+
+    21:43:10  All checks passed!
+    ```
+
+
+You're good to go!
