@@ -1,0 +1,55 @@
+version: 2
+
+models:
+  - name: stg_haunted_house_tickets
+    description: " Staging model for haunted house tickets data"
+    columns:
+      - name: ticket_id
+        data_type: number
+        description: "Unique identifier for each ticket"
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_id
+        data_type: number
+        description: " Identifier for the customer who purchased the ticket"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_id
+
+      - name: haunted_house_id
+        data_type: number
+        description: "  Identifier for the haunted house associated with the ticket"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_haunted_houses')
+              field: haunted_house_id
+
+      - name: purchase_date
+        data_type: date
+        description: " Date when the ticket was purchased"
+        tests:
+          - not_null
+
+      - name: visit_date
+        data_type: date
+        description: " Date when the customer is scheduled to visit the haunted house"
+
+      - name: ticket_type
+        data_type: varchar
+        description: " Type of ticket purchased (e.g., general admission, VIP)"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['General Admission', 'VIP',  'Fast Pass']
+
+      - name: ticket_price
+        data_type: float
+        description: "  Price of the ticket purchased"
+        tests:
+          - not_null
+          - is_positive

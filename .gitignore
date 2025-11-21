@@ -1,0 +1,43 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+venv/
+.venv/
+env/
+ENV/
+pip-log.txt
+*.egg-info/
+
+# dbt and build artifacts
+target/
+run/
+compiled/
+dbt_packages/
+
+# logs and runtime files
+logs/
+*.log
+
+# Local environment and secrets
+.env
+dbt.env
+profiles.yml
+
+# IDEs and editors
+.idea/
+.vscode/
+*.sublime-workspace
+
+# macOS and misc
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Test outputs
+.pytest_cache/

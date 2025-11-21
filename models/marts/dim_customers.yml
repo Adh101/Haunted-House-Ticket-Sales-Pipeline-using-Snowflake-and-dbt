@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: " Dimension table for customers details"
+    columns:
+      - name: customer_id
+        data_type: number
+        tests:
+          - not_null
+          - unique
+
+      - name: age
+        data_type: number
+
+      - name: gender
+        data_type: varchar
+        tests:
+          - accepted_values:
+             values: ['Male', 'Female', 'Other']
+
+      - name: email
+        data_type: varchar
+
+      - name: is_valid_email_address
+        data_type: boolean
+
+unit_tests:
+  - name: test_is_valid_email_address
+    description: "Check my is_valid_email_address logic captures all known edge cases - emails without ., emails without @, and emails from invalid domains."
+    model: dim_customers
+    given:
+      - input: ref('stg_customers')
+        rows:
+          - {email: cool@example.com}
+          - {email: cool@example.io}
+          - {email: badgmail.com}
+          - {email: missingdot@gmailcom}
+          - {email: null}
+      - input: ref('valid_domains')
+        rows:
+          - {valid_domain: '@example.com'}
+          - {valid_domain: '@example.io'}
+    expect:
+      rows:
+        - {email: cool@example.com,    is_valid_email_address: true}
+        - {email: cool@example.io,    is_valid_email_address: true}
+        - {email: badgmail.com,        is_valid_email_address: false}
+        - {email: missingdot@gmailcom, is_valid_email_address: false}
+        - {email: null,                is_valid_email_address: false}

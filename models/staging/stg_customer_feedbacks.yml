@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: stg_customer_feedbacks
+    description: " Staging model for customer feedbacks data"
+    columns:
+      - name: feedback_id
+        data_type: number
+        description: " Unique identifier for each feedback entry"
+        tests:
+          - not_null
+          - unique
+      - name: ticket_id
+        data_type: number
+        description: " Identifier for the ticket associated with the feedback"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_haunted_house_tickets')
+              field: ticket_id
+      - name: rating
+        data_type: number
+        description: " Rating given by the customer"
+
+      - name: comments
+        data_type: varchar
+        description: " Comments provided by the customer"

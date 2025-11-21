@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: dim_haunted_houses
+    description: " Dimension table for haunted houses details"
+    columns:
+      - name: haunted_house_id
+        data_type: number
+        tests:
+          - not_null
+          - unique
+
+      - name: house_name
+        data_type: varchar
+
+      - name: park_area
+        data_type: varchar
+
+      - name: theme
+        data_type: varchar
+
+      - name: fear_level
+        data_type: number
+        tests:
+          - not_null
+          - accepted_values:
+              values: [1, 2, 3, 4, 5]
+
+      - name: house_size_in_ft2
+        data_type: number
+        tests:
+          - not_null
+
+      - name: house_size_in_m2
+        data_type: number
+        tests:
+          - not_null

@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: fact_visits
+    description: " Fact table capturing visits to haunted houses along with ticket and feedback details"
+    columns:
+      - name: ticket_id
+        data_type: number
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_id
+        data_type: number
+        tests:
+          - not_null
+
+      - name: haunted_house_id
+        data_type: number
+        tests:
+          - not_null
+      
+      - name: purchase_date
+        data_type: date
+        tests:
+          - not_null
+
+      - name: visit_date
+        data_type: date
+        tests:
+          - not_null
+
+      - name: ticket_type
+        data_type: varchar
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['General Admission', 'VIP',  'Fast Pass']
+
+      - name: ticket_price
+        data_type: float
+        tests:
+          - not_null
+
+      - name: rating
+        data_type: number
+
+      - name: comments
+        data_type: varchar

@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: stg_haunted_houses
+    description: " Staging model for haunted houses data"
+    columns:
+      - name: haunted_house_id
+        data_type: number
+        description: " Unique identifier for each haunted house"
+        tests:
+          - not_null
+          - unique
+      
+      - name: house_name
+        data_type: varchar
+        description: " Name of the haunted house"
+
+      - name: park_area
+        data_type: varchar
+        description: " Area of the park where the haunted house is located"
+
+      - name: theme
+        data_type: varchar
+        description: " Theme of the haunted house"
+
+      - name: fear_level
+        data_type: number
+        description: " Level of fear induced by the haunted house on a scale from 1 to 5"
+        tests:
+          - not_null
+          - accepted_values:
+              values: [1, 2, 3, 4, 5]
+
+      - name: house_size
+        data_type: number
+        description: " Size of the haunted house in square feet"
