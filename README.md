@@ -239,8 +239,8 @@ Each dbt project contains various directories and files. Learn more about the st
 
 1. **Clone the Repository**: Open a terminal, navigate to your desired directory, and clone the repository using:
     ```bash
-    git clone git@github.com:DataExpert-io/analytics-engineering-bootcamp-homework.git # clone the repo
-    cd analytics-engineering-bootcamp-homework # navigate into the new folder
+    git clone https://github.com/Adh101/Haunted-House-Ticket-Sales-Pipeline-using-Snowflake-and-dbt # clone the repo
+    cdHaunted-House-Ticket-Sales-Pipeline-using-Snowflake-and-dbt # navigate into the new folder
     ```
 
     1. If you don’t have SSH configured with the GitHub CLI, please follow the instructions for [generating a new SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and [adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?tool=cli) in the GitHub docs.
@@ -249,20 +249,9 @@ Each dbt project contains various directories and files. Learn more about the st
 
 ## dbt Project Setup
 
--  **Create a Branch:**
-    - Navigate to the **`analytics-engineering-bootcamp-homework/dbt_basics/homework`** folder on your local machine.
-    - Use the **`git checkout -b`** command to create a new branch where you can commit and push your changes. Prefix your branch name with your Git username to avoid conflicts.
-          For example:
+-  **Navigate:**
+    - Navigate to the **`Haunted-House-Ticket-Sales-Pipeline-using-Snowflake-and-dbt`** folder on your local machine.
 
-        ```bash
-        git checkout -b homework/my-git-username
-        ```
-    - Create a copy of the **`template/`** folder and rename it to **`<your-git-username>`**, for example **`dbt_basics/homework/bruno`**.
-
-- Go to the project's directory, assuming you are already in the **`homework`** folder:
-  ```bash
-  cd <your-git-username>
-  ```
 - Create a venv to isolate required packages
   ```bash
   python3 -m venv venv # MacOS/Linux
@@ -309,37 +298,7 @@ Each dbt project contains various directories and files. Learn more about the st
       ```
 
 
-- Run `dbt debug` to check your connection. You should see a message like this:
-    ```
-    21:43:08  Running with dbt=1.8.0
-    21:43:08  dbt version: 1.8.0
-    21:43:08  python version: 3.9.6
-    21:43:08  python path: <path_to_repo>/airflow-dbt-project/dbt_project/venv/bin/python3
-    21:43:08  os info: macOS-13.5.1-arm64-arm-64bit
-    21:43:08  Using profiles dir at ./
-    21:43:08  Using profiles.yml file at ./profiles.yml
-    21:43:08  Using dbt_project.yml file at ./dbt_project.yml
-    21:43:08  adapter type: trino
-    21:43:08  adapter version: 1.8.0
-    21:43:08  Configuration:
-    21:43:08  profiles.yml file [OK found and valid]
-    21:43:08  dbt_project.yml file [OK found and valid]
-    21:43:08  Required dependencies:
-    21:43:08   - git [OK found]
-
-    21:43:08  Connection:
-    21:43:08  host: dataengineer-eczachly.trino.galaxy.starburst.io
-    21:43:08  port: 8443
-    21:43:08  user: support@eczachly.com/student
-    21:43:08  database: academy
-    21:43:08  schema: <your schema>
-    21:43:08  cert: None
-    21:43:08  prepared_statements_enabled: True
-    21:43:08  Registered adapter: trino=1.8.0
-    21:43:10  Connection test: [OK connection ok]
-
-    21:43:10  All checks passed!
-    ```
+- Run `dbt debug` to check your connection.
 
 
 You're good to go!
